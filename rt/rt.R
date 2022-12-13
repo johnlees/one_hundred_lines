@@ -61,6 +61,6 @@ df_rt <- df_incidence %>% compute_rt()
 write_csv(df_rt, paste0(OUT_PATH, 'rt_all_ages.csv'))
 
 # plotting data
-png(file = paste0(OUT_PATH, "graphs_rt.png"))
+png(file = paste0(OUT_PATH, "graphs_rt.png"), width = 1000, height = 650)
 plot(df_rt, legend = FALSE)
 dev.off()
