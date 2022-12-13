@@ -31,7 +31,7 @@ compute_rt <- function(df,
 }
 
 # paths
-DATA_PATH = 'data/'
+DATA_PATH = '../data/'
 OUT_PATH = 'outputs/'
 
 # read data
