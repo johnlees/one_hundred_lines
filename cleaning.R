@@ -13,7 +13,6 @@ stopifnot(length(input_df$id) == length(unique(input_df$id)))
 stopifnot(length(input_df$name) == length(unique(input_df$name)))
 
 # Case type: check possible values, correct factors
-#stopifnot(levels(factor(input_df$case_type)) !=confirmed probable suspected
 case_type_counts <- 
   input_df %>%
     count(case_type)
@@ -29,6 +28,7 @@ gender_name <- Vectorize(function(x) {
     stop("Unknown gender encountered")
   }
 })
+
 # Replace with "male" or "female"
 input_df < input_df %>%
   mutate(gender = gender_name(gender))
@@ -36,12 +36,13 @@ input_df < input_df %>%
 # Age: Check all numeric, in reasonable range, plot
 input_df %>%
   filter(age > 80)
-# Hospitalisation: yes, no
-# Hospitalisation date
-# Outcome: alive, dead, missing
+
+# TODO steps below here:
+# Hospitalisation: convert into yes, no
+# All dates converted to days into 2023 (i.e. 1st Jan is day 1)
+# Outcome: either alive, dead, missing
 # Death date: latest date, outcome != alive (then put both as unknown)
 # Date first contact < date last contact
 # Origin: rural or urban
 # Exposure: animal or human
-
 # Remove: case name, Ct_value
